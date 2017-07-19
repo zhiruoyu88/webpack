@@ -2,12 +2,12 @@ var path = require('path');
 var HtmlWebpackPlguins = require('html-webpack-plugin');
 var webpackDevServer = require('webpack-dev-server'); 
 var webpack = require('webpack');
-var express = require('express');
+// var express = require('express');
 // var babelloader = require('babel-loader');
-var app = express();
+// var app = express();
 module.exports = {
     devtool: 'eval-source-map',
-    entry:"../src/main.js",
+    entry:"./src/main.js",
     output:{
         path:path.resolve(__dirname,'../dist'),
         filename:'[name].js',
@@ -29,15 +29,15 @@ module.exports = {
     new webpack.NoEmitOnErrorsPlugin(),
     new HtmlWebpackPlguins({
         title:'vvvv',
-      filename: '../index.html',
-      template: '../index.html',
+      filename: 'index.html',
+      template: 'index.html',
       inject: true
       })
     ],
-    devServer: {
-        contentBase: "../",  //以public为根目录提供文件
-        // colors: true,
-        historyApiFallback: true,
-        inline: true
-    }
+    // devServer: {
+    //     contentBase: "./",  //以public为根目录提供文件
+    //     // colors: true,
+    //     historyApiFallback: true,
+    //     inline: true
+    // }
 }

@@ -1,5 +1,6 @@
-import Vue from 'vue'
+// import Vue from 'vue'
 
-new Vue({
-    el:'#app'
-})
+// new Vue({
+//     el:'#app'
+// })
+console.log('main.js')
