@@ -9,16 +9,29 @@ module.exports = {
     devtool: 'eval-source-map',
     entry:"./src/main.js",
     output:{
-        path:path.resolve(__dirname,'../dist'),
+        path:path.resolve(__dirname,'../src'),
         filename:'[name].js',
-        // publicPath:'www.test.com/'   // “path”仅仅告诉Webpack结果存储在哪里，然而“publicPath”项则被许多Webpack的插件用于在生产模式下更新内嵌到css、html文件里的url值。
+        publicPath:'/'   // “path”仅仅告诉Webpack结果存储在哪里，然而“publicPath”项则被许多Webpack的插件用于在生产模式下更新内嵌到css、html文件里的url值。
+    },
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+          'vue$': 'vue/dist/vue.esm.js',
+          '@': path.resolve(__dirname,'../src')
+        }
     },
     module:{
-        loaders:[{
+        loaders:[
+        {
             test:/\.js$/,
             exclude:/(node_modules)/,
             loader:'babel-loader'
-        }]
+        },{
+            test:/\.vue$/,
+            exclude: /node_modules/,
+            loader:'vue-loader'
+        }
+        ]
     },
     plugins:[
     // new webpack.DefinePlugin({

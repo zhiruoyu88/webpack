@@ -9,4 +9,5 @@ app.use(require('webpack-dev-middleware')(compiler,{
     log:()=>{}
 }));
 app.use(require('webpack-hot-middleware')(compiler))
+console.log('server run on port 8080')
 app.listen('8080')
